@@ -3,8 +3,8 @@ using UnityEngine;
 public class Movimentos2 : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-    private float deceleration = 0.95f;
-    private float recoilMultiplier = 2.0f;
+    [SerializeField] private float deceleration = 0.95f;
+
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,17 +63,4 @@ public class Movimentos2 : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Rigidbody2D otherRb = collision.rigidbody;
-        if (otherRb != null)
-        {
-            Vector2 relativeVelocity = rb.linearVelocity - otherRb.linearVelocity;
-            Vector2 recoilDirection = relativeVelocity.normalized;
-            float recoilForce = relativeVelocity.magnitude * recoilMultiplier;
-
-            rb.AddForce(-recoilDirection * recoilForce, ForceMode2D.Impulse);
-            otherRb.AddForce(recoilDirection * recoilForce, ForceMode2D.Impulse);
-        }
-    }
 }
