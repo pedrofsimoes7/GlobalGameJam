@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8fe18a924a5cc194eb9824d72ca14bd3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Wigglye
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7c57c525014254b46bb88ab6650816c0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 1
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
