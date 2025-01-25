@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - TAG
   - PowerUp
+  - Vida
+  - vida
   layers:
   - Default
   - TransparentFX
