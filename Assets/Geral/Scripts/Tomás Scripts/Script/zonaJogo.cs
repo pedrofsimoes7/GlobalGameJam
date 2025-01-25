@@ -10,6 +10,8 @@ public class gameZone : MonoBehaviour
     [SerializeField] private float reviveRadious = 0.1f;
     private Dictionary<GameObject, int> playerExitCount = new Dictionary<GameObject, int>();
 
+    private CurrentLife life;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +45,7 @@ public class gameZone : MonoBehaviour
 
             playerExitCount[other.gameObject]++;
 
-            if (playerExitCount[other.gameObject] >= 3)
+            if (playerExitCount[other.gameObject] >= life.maxLifes)
             {
                 print("Player não pode mais retornar ao jogo");
                 other.gameObject.SetActive(false);
