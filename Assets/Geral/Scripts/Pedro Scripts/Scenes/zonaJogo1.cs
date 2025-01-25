@@ -54,23 +54,7 @@ public class zonaJogo : MonoBehaviour
             }
         }
     }
-
-    /*private void MatarPlayer(Collider2D player)
-    {
-        var movimentos = player.GetComponent<Movimentos>();
-        if (movimentos != null)
-        {
-            movimentos.Morrer();
-        }
-        else
-        {
-            var moves = player.GetComponent<Moves>();
-            if (moves != null)
-            {
-                moves.Morrer();
-            }
-        }
-    }*/
+    
 
     private IEnumerator revivePlayer(Collider2D player)
     {
