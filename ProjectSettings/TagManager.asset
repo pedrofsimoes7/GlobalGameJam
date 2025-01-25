@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -12,10 +13,10 @@ TagManager:
   - Water
   - UI
   - Target
-  - 
-  - 
-  - 
-  - 
+  - Player Layer
+  - TOP
+  - MID
+  - DOWN
   - 
   - 
   - 
@@ -40,6 +41,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TOP
+    uniqueID: 3083093447
+    locked: 0
+  - name: MID
+    uniqueID: 2950622295
+    locked: 0
+  - name: DOWN
+    uniqueID: 2810760783
     locked: 0
   m_RenderingLayers:
   - Default
