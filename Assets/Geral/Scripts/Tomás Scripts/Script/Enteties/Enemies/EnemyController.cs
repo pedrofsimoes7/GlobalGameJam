@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,15 +7,15 @@ public class EnemyController : MonoBehaviour
 
     public enum EnemyState { Chasing, Retreating, Recharging }
 
-    [SerializeField] private Transform target; // Player or target to follow
+    [SerializeField] private Transform[] potentialTargets; // Array of potential targets
     [SerializeField] private float speed = 5f; // Movement speed
-    [SerializeField] private float retreatDistance = 2f; // Distance to retreat after collision
+    [SerializeField] private float retreatDistance = 0.5f; // Distance to retreat after collision
     [SerializeField] private float rechargeTime = 1f; // Time to wait before charging again
     [SerializeField] private float deceleration = 0.95f; // Smooth stopping
-    [SerializeField] private float rayDistance = 0.2f; // Distance for raycasts
+    [SerializeField] private float rayDistance = 0.10f; // Distance for raycasts
 
     private Rigidbody2D rb;
-
+    private Transform target; // Current closest target
     private Vector2 moveDirection;
     private EnemyState currentState = EnemyState.Chasing;
     private float rechargeTimer = 0f;
@@ -27,6 +28,9 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        // Update the closest target dynamically
+        FindClosestTarget();
+
         if (target == null) return;
 
         switch (currentState)
@@ -38,17 +42,17 @@ public class EnemyController : MonoBehaviour
                 break;
 
             case EnemyState.Retreating:
-             // Move away from the target
-               moveDirection = (transform.position - target.position).normalized;
+                // Move away from the target
+                moveDirection = (transform.position - target.position).normalized;
 
                 // Check if retreat distance is reached
                 if (Vector2.Distance(transform.position, target.position) >= retreatDistance)
                 {
                     moveDirection = Vector2.zero;
-                   currentState = EnemyState.Recharging;
-                  rechargeTimer = rechargeTime; // Start recharge timer
+                    currentState = EnemyState.Recharging;
+                    rechargeTimer = rechargeTime; // Start recharge timer
                 }
-            break;
+                break;
 
             case EnemyState.Recharging:
                 // Stay idle while recharging
@@ -66,25 +70,12 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*    if (moveDirection != Vector2.zero)
-            {
-                rb.linearVelocity = moveDirection * speed;
-            }*/
-
-        /*
-                else
-                {
-                    // Smooth deceleration
-                    rb.linearVelocity *= deceleration;
-                }*/
-
         Vector2 movement = moveDirection * speed;
         rb.AddForce(movement);
 
         if (moveDirection == Vector2.zero)
         {
             rb.linearVelocity *= deceleration;
-
         }
     }
 
@@ -101,12 +92,12 @@ public class EnemyController : MonoBehaviour
     {
         // Cast rays in 4 directions (forward, backward, left, right)
         Vector2[] directions = new Vector2[]
-        {
-            moveDirection,                          // Forward
-            -moveDirection,                         // Backward
-            new Vector2(-moveDirection.y, moveDirection.x), // Left
-            new Vector2(moveDirection.y, -moveDirection.x)  // Right
-        };
+{
+        moveDirection,                          // Forward
+        -moveDirection,                         // Backward
+        new Vector2(-moveDirection.y, moveDirection.x), // Left
+        new Vector2(moveDirection.y, -moveDirection.x)  // Right
+};
 
         for (int i = 0; i < directions.Length; i++)
         {
@@ -128,7 +119,23 @@ public class EnemyController : MonoBehaviour
                 break;
             }
         }
+
+        // Recalculate moveDirection toward the target after dodging
+        moveDirection = (target.position - transform.position).normalized;
+       }
+
+
+    private void FindClosestTarget()
+    {
+        // Find the closest target
+        if (potentialTargets.Length == 0) return;
+
+        // Find the closest target
+        target = potentialTargets
+            .OrderBy(t => Vector2.Distance(transform.position, t.position))
+            .FirstOrDefault();
     }
+
 
     private void OnDrawGizmos()
     {
