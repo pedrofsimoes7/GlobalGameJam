@@ -45,7 +45,7 @@ public class gameZone : MonoBehaviour
 
             playerExitCount[other.gameObject]++;
 
-            if (playerExitCount[other.gameObject] >= life.maxLifes)
+            if (playerExitCount[other.gameObject] >= 3)
             {
                 print("Player não pode mais retornar ao jogo");
                 other.gameObject.SetActive(false);
