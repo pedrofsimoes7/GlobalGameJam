@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Geral/Scripts/Final/FinalScenes/Level/Mapa.unity
     guid: c1e79805b047c43bf8dab8d95a0c6ecf
   - enabled: 1
-    path: "Assets/Geral/Scripts/Tom\xE1s Scripts/MapaJogo.unity"
-    guid: 69856b8e6f559c143b259f02233bc1ac
+    path: Assets/Geral/Scripts/Final/FinalScenes/Level/MapaJogo.unity
+    guid: eae3a0ac61d8b514d9d30a71ef9c56dc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
