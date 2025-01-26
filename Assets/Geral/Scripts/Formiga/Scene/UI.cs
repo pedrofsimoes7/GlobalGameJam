@@ -3,17 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void play(){
         SceneManager.LoadScene("SelectMode");
@@ -27,6 +16,7 @@ public class UI : MonoBehaviour
     public void backToMenu()
     {
         SceneManager.LoadScene("MenuInicio");
+        Time.timeScale = 1f;
     }
 
     public void loadGame1()
