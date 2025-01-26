@@ -8,6 +8,7 @@ public class PlayerController22 : MonoBehaviour
     [SerializeField] private float speedBoostMultiplier = 2.0f; // Multiplier for speed boost
     [SerializeField] private float speedBoostDuration = 5.0f; // Duration of the speed boost in seconds
 
+
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool isSpeedBoostActive = false;
@@ -78,7 +79,7 @@ public class PlayerController22 : MonoBehaviour
 
         if (collision.gameObject.CompareTag("vida"))
         {
-            SaveHealth.Health++;
+            SaveHealth.Health1++;
             SaveHealth.Save();
             Destroy(collision.gameObject);
         }

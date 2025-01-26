@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float deceleration = 0.95f;
     [SerializeField] private float speedBoostMultiplier = 2.0f; // Multiplier for speed boost
     [SerializeField] private float speedBoostDuration = 5.0f; // Duration of the speed boost in seconds
-    public int vida = 3;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
