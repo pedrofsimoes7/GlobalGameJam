@@ -75,6 +75,13 @@ public class PlayerController22 : MonoBehaviour
             StartCoroutine(SpeedBoost());
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("vida"))
+        {
+            SaveHealth.Health++;
+            SaveHealth.Save();
+            Destroy(collision.gameObject);
+        }
     }
 
     private IEnumerator SpeedBoost()

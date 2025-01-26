@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Geral/Scripts/Pedro Scripts/Scenes/Pedro.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Geral/Scripts/Formiga/Scene/MenuInicio.unity
+    guid: dbe8ecfcbac12431aa013eaed39f3b20
+  - enabled: 1
+    path: Assets/Geral/Scripts/Formiga/Scene/SelectMode.unity
+    guid: 8ddc884ad6f11467d92ae5eb0843ae05
+  - enabled: 1
+    path: Assets/Geral/Scripts/Formiga/Scene/Credits.unity
+    guid: fe6d7bd58c7e64eb194a90163eff8a0c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -12,6 +12,7 @@ TagManager:
   - AI1
   - AI2
   - AI3
+  - Player1
   layers:
   - Default
   - TransparentFX

@@ -51,6 +51,28 @@ public class GameZone : MonoBehaviour
             }
         }
 
+        if (other.CompareTag("Player1"))
+        {
+
+            Debug.Log("Player exited the game zone");
+
+
+            //playerLives[other.gameObject]--;
+            SaveHealth.Health1--;
+            Debug.Log(SaveHealth.Health1);
+            if (SaveHealth.Health1 > 0)
+            {
+                //Debug.Log($"Player has {playerLives[other.gameObject]} lives remaining.");
+                StartCoroutine(RevivePlayer(other));
+            }
+            else
+            {
+                Debug.Log("Player has no lives left and cannot return to the game.");
+                other.gameObject.SetActive(false); // Deactivate the player
+                //playerLives.Remove(other.gameObject); // Optionally remove the player from tracking
+            }
+        }
+
         if (other.CompareTag("AI1")) { }
         if (other.CompareTag("AI1")) { }
         if (other.CompareTag("AI1")) { }
@@ -84,8 +106,8 @@ public class GameZone : MonoBehaviour
 
         do
         {
-            float randomX = Random.Range(bounds.min.x, bounds.max.x);
-            float randomY = Random.Range(bounds.min.y, bounds.max.y);
+            float randomX = Random.Range(-2f,2f);
+            float randomY = Random.Range(-2f, 2f);
             randomPosition = new Vector2(randomX, randomY);
 
             attempts++;
