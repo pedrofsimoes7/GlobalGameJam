@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,17 +10,22 @@ public class EnemyController : MonoBehaviour
     public enum EnemyState { Chasing, Retreating, Recharging }
 
     [SerializeField] private Transform[] potentialTargets; // Array of potential targets
-    [SerializeField] private float speed = 5f; // Movement speed
+    [SerializeField] private float speed = 3f; // Movement speed
     [SerializeField] private float retreatDistance = 0.5f; // Distance to retreat after collision
     [SerializeField] private float rechargeTime = 1f; // Time to wait before charging again
     [SerializeField] private float deceleration = 0.95f; // Smooth stopping
     [SerializeField] private float rayDistance = 0.10f; // Distance for raycasts
+    [Header("Power-Up Settings")]
+    [SerializeField] private float speedBoostMultiplier = 2f; // Multiplier for speed boost
+    [SerializeField] private float speedBoostDuration = 5f; // Duration of the speed boost
 
     private Rigidbody2D rb;
     private Transform target; // Current closest target
     private Vector2 moveDirection;
     private EnemyState currentState = EnemyState.Chasing;
     private float rechargeTimer = 0f;
+
+    private bool isSpeedBoostActive = false;
 
 
     public void Awake()
@@ -81,10 +88,24 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collision is with the player
         if (collision.gameObject.CompareTag("Player"))
         {
             currentState = EnemyState.Retreating;
+        }
+
+        // Check if the collided object is a PowerUp
+        if (collision.gameObject.CompareTag("PowerUp"))
+        {
+            StartCoroutine(SpeedBoost());
+            Destroy(collision.gameObject);
+        }
+
+        // Check if the collided object is a "vida" item
+        if (collision.gameObject.CompareTag("vida"))
+        {
+            // Implement the life-increasing logic here
+            Debug.Log("Life increased by 1!");
+            Destroy(collision.gameObject);
         }
     }
 
@@ -134,6 +155,22 @@ public class EnemyController : MonoBehaviour
         target = potentialTargets
             .OrderBy(t => Vector2.Distance(transform.position, t.position))
             .FirstOrDefault();
+    }
+
+    private IEnumerator SpeedBoost()
+    {
+        if (!isSpeedBoostActive)
+        {
+            isSpeedBoostActive = true;
+            speed *= speedBoostMultiplier;
+            Debug.Log("Speed boost activated!");
+
+            yield return new WaitForSeconds(speedBoostDuration);
+
+            speed /= speedBoostMultiplier;
+            isSpeedBoostActive = false;
+            Debug.Log("Speed boost ended.");
+        }
     }
 
 

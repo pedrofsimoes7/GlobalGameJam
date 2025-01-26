@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController22 : MonoBehaviour
 {
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private float deceleration = 0.95f;
     [SerializeField] private float speedBoostMultiplier = 2.0f; // Multiplier for speed boost
     [SerializeField] private float speedBoostDuration = 5.0f; // Duration of the speed boost in seconds
-    public int vida = 3;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -29,22 +28,22 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = 0f;
         float moveVertical = 0f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             moveVertical = 1f;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             moveVertical = -1f;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             moveHorizontal = -1f;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             moveHorizontal = 1f;
         }
@@ -74,15 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             // Trigger the speed boost and destroy the power-up object
             StartCoroutine(SpeedBoost());
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("vida"))
-        {
-            // Trigger the speed boost and destroy the power-up object
-            //vida += 1;
-            SaveHealth.Health++;
-            SaveHealth.Save();
             Destroy(collision.gameObject);
         }
     }
