@@ -868,10 +868,10 @@ RectTransform:
   - {fileID: 43382073}
   - {fileID: 1072821938}
   - {fileID: 1407488819}
-  - {fileID: 739234443}
   - {fileID: 270369971}
   - {fileID: 240474860}
   - {fileID: 1685239938}
+  - {fileID: 739234443}
   - {fileID: 1517482372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
