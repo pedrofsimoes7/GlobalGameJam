@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UIGUI : MonoBehaviour
 {
     public TextMeshProUGUI TextP1, TextP2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

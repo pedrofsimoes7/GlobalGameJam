@@ -103,8 +103,8 @@ public class EnemyController : MonoBehaviour
         // Check if the collided object is a "vida" item
         if (collision.gameObject.CompareTag("vida"))
         {
-            // Implement the life-increasing logic here
-            Debug.Log("Life increased by 1!");
+            SaveHealth.Health1++;
+            SaveHealth.Save();
             Destroy(collision.gameObject);
         }
     }
