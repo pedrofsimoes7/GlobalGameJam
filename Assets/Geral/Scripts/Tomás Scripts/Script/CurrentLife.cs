@@ -3,23 +3,28 @@ using UnityEngine;
 
 public class CurrentLife : MonoBehaviour
 {
+
     public int maxLifes = 3;
     public int currentLife;
-    public void Start()
+    private void Start()
     {
         currentLife = maxLifes;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collided object has the "PowerUp" tag
+        // Check if the collided object has the "vida" tag
         if (collision.gameObject.CompareTag("vida"))
         {
-            // Trigger the speed boost and destroy the power-up object
-            currentLife += 1;
+            // Increase life, but don't exceed maxLifes
+            if (currentLife < maxLifes)
+            {
+                currentLife++;
+                print($"Player gained a life! Current Life: {currentLife}");
+            }
 
             Destroy(collision.gameObject);
         }
     }
-
 
 }

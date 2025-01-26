@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float deceleration = 0.95f;
     [SerializeField] private float speedBoostMultiplier = 2.0f; // Multiplier for speed boost
     [SerializeField] private float speedBoostDuration = 5.0f; // Duration of the speed boost in seconds
+    public int vida = 3;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -73,6 +74,15 @@ public class PlayerController : MonoBehaviour
         {
             // Trigger the speed boost and destroy the power-up object
             StartCoroutine(SpeedBoost());
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("vida"))
+        {
+            // Trigger the speed boost and destroy the power-up object
+            //vida += 1;
+            SaveHealth.Health++;
+            SaveHealth.Save();
             Destroy(collision.gameObject);
         }
     }
