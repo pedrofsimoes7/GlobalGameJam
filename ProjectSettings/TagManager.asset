@@ -9,6 +9,9 @@ TagManager:
   - PowerUp
   - Vida
   - vida
+  - AI1
+  - AI2
+  - AI3
   layers:
   - Default
   - TransparentFX

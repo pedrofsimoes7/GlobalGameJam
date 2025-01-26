@@ -7,12 +7,12 @@ public class GameZone : MonoBehaviour
 {
     [SerializeField] private Collider2D zonaCollider;
     [SerializeField] private float reviveRadius = 0.1f;
-    [SerializeField] private int maxLives = 3; // Max lives for each player
+    //[SerializeField] private int maxLives = 3; // Max lives for each player
 
     // Text field
 
 
-    private Dictionary<GameObject, int> playerLives = new Dictionary<GameObject, int>(); // Track remaining lives for each player
+    //private Dictionary<GameObject, int> playerLives = new Dictionary<GameObject, int>(); // Track remaining lives for each player
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,10 +21,10 @@ public class GameZone : MonoBehaviour
             Debug.Log("Player entered the game zone");
 
             // Initialize lives for the player if not already present
-            if (!playerLives.ContainsKey(other.gameObject))
+            /*if (!playerLives.ContainsKey(other.gameObject))
             {
                 playerLives[other.gameObject] = maxLives;
-            }
+            }*/
         }
     }
 
@@ -40,7 +40,7 @@ public class GameZone : MonoBehaviour
             SaveHealth.Health--;
             if (SaveHealth.Health > 0)
             {
-                Debug.Log($"Player has {playerLives[other.gameObject]} lives remaining.");
+                //Debug.Log($"Player has {playerLives[other.gameObject]} lives remaining.");
                 StartCoroutine(RevivePlayer(other));
             }
             else

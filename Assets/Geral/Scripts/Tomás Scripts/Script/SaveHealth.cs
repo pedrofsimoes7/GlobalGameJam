@@ -7,6 +7,11 @@ public class SaveHealth : MonoBehaviour
         get => PlayerPrefs.GetInt("Health", 3);
         set => PlayerPrefs.SetInt("Health", value);
     }
+    public static int Health1
+    {
+        get => PlayerPrefs.GetInt("Health1", 3);
+        set => PlayerPrefs.SetInt("Health1", value);
+    }
     public static int HealthIA1
     {
         get => PlayerPrefs.GetInt("HealthIA1", 3);
