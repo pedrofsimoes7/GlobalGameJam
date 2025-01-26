@@ -69,22 +69,21 @@ public class zonaJogo : MonoBehaviour
     private Vector2 GetValidRandomPositionInZone()
     {
         if (zonaCollider == null)
-        { 
+        {
             return Vector2.zero;
         }
-        Bounds bounds = zonaCollider.bounds;
         Vector2 randomPosition;
         int attempts = 0;
 
         do
         {
-            float randomX = Random.Range(bounds.min.x - reviveRadious, bounds.max.x - reviveRadious);
-            float randomY = Random.Range(bounds.min.y - reviveRadious, bounds.max.y - reviveRadious);
+            float randomX = Random.Range(-2f, 2f);
+            float randomY = Random.Range(-2f, 2f);
             randomPosition = new Vector2(randomX, randomY);
             attempts++;
         } while (Physics2D.OverlapCircle(randomPosition, reviveRadious) != null && attempts < 100);
-        
-        if(attempts >= 100)
+
+        if (attempts >= 100)
         {
             print("Não foi possível encontrar uma posição válida para reviver o jogador");
         }
