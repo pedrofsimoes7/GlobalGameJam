@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 3f7a6e638179a4703b2a1e622c9a979c
+guid: 83a80c90c4a5043b59ae2d9eed7fe15f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6990804935201113765
-    second: Mar arena 3_0
+      213: -6070272833953831143
+    second: Untitled 29_0
+  - first:
+      213: 4897095742360790231
+    second: Untitled 29_1
+  - first:
+      213: -8005299398239895987
+    second: Untitled 29_2
+  - first:
+      213: 5916546235857365747
+    second: Untitled 29_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mar arena 3_0
+      name: Untitled 29_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 18
-        height: 18
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b593a4743fbabfe90800000000000000
-      internalID: -6990804935201113765
+      spriteID: 9176a7ae40f02cba0800000000000000
+      internalID: -6070272833953831143
       vertices: []
       indices: 
       edges: []
@@ -138,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 246db39009497457b99f72f8f6c89a2a
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +157,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mar arena 3_0: -6990804935201113765
+      Untitled 29_0: -6070272833953831143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
